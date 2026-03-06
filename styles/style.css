@@ -1,0 +1,95 @@
+/* Genel Ayarlar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 1. Menü Yapısı (display: inline-block kullanımı) */
+nav {
+    background-color: #333;
+    text-align: center;
+}
+
+nav ul {
+    list- some: none;
+    padding: 15px;
+}
+
+nav ul li {
+    display: inline-block; /* Ödev gereksinimi */
+    margin-right: 20px;
+}
+
+/* Hiyerarşik Seçici 1 ve Hover Efekti */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s; /* Geçiş efekti */
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Hover efekti: Renk değişimi */
+}
+
+/* 2. Header Alanı */
+header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+/* 3. İki Sütunlu Düzen (display: inline-block ile yan yana getirme) */
+.container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.content {
+    display: inline-block;
+    width: 65%;
+    vertical-align: top;
+    background-color: #fff;
+}
+
+.sidebar {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    background-color: #fafafa;
+    border-left: 1px solid #eee;
+    padding-left: 15px;
+}
+
+/* Hiyerarşik Seçici 2 ve Metin Düzenlemeleri (font-size, color, line-height, text-align) */
+.content p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.sidebar p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* 4. Grup Seçici (h1, h2 ve p için ortak özellik) */
+h1, h2, p {
+    margin-bottom: 10px;
+}
+
+/* 5. Footer Alanı */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
