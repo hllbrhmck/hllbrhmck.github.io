@@ -2,50 +2,43 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Ana Sayfa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişisel Web Sayfası - Ödev</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
-    <h1>Halil</h1>
-    <p>Bilgisayar Mühendisliği | Web Programlama Öğrencisi</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="interests.html">İlgi Alanlarım</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+        </ul>
+    </nav>
 
-    <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="about.html">Hakkımda</a></li>
-        <li><a href="interests.html">İlgi Alanlarım</a></li>
-        <li><a href="contact.html">İletişim</a></li>
-    </ul>
+    <header>
+        <h1>Halil İbrahim - Kişisel Blog</h1>
+        <p>Bu sayfa CSS temel özelliklerini uygulamak amacıyla hazırlanmıştır.</p>
+    </header>
 
-    <h2>Hoş Geldiniz</h2>
-    <p>Bu web sitesi, Web Programlama dersi kapsamında hazırlanmış <strong>örnek bir kişisel tanıtım sayfasıdır</strong>. Amaç, HTML'in temel etiketlerini ve sayfa yapısını öğrenmektir.</p>
-    
-    <p>Daha fazla bilgi için <em>Hakkımda</em> sayfasını ziyaret edebilirsiniz.</p>
+    <main class="container">
+        <section class="content">
+            <h2>İçerik Bölümü</h2>
+            <p>Bu bölümde projelerim ve üzerinde çalıştığım makine öğrenmesi modelleri hakkında bilgiler yer almaktadır. Görsel işleme ve doğal dil işleme konularına ilgi duyuyorum.</p>
+            <p>Marmara Üniversitesi'nde sürdürdüğüm eğitim hayatım boyunca algoritma analizi ve veri yapıları üzerine kendimi geliştirmeye odaklandım.</p>
+        </section>
 
-    <h2>Hızlı Bilgiler</h2>
-    <ul>
-        <li>Üniversite: Marmara Üniversitesi</li>
-        <li>Bölüm: Bilgisayar Mühendisliği</li>
-        <li>İlgi Alanı: Web Teknolojileri</li>
-    </ul>
+        <aside class="sidebar">
+            <h2>Yan Menü</h2>
+            <p>Güncel Notlar: Şu an ESP32 ile kontrol edilen bir RC araç projesi üzerinde çalışmaktayım.</p>
+            <p>Favori Takımım: Galatasaray. Spor ve teknoloji gündemini yakından takip ediyorum.</p>
+        </aside>
+    </main>
 
-    <h2>Öğrenme Hedeflerim</h2>
-    <ol>
-        <li>HTML temellerini öğrenmek</li>
-        <li>CSS ile sayfa tasarlamak</li>
-        <li>JavaScript ile etkileşim eklemek</li>
-        <li>ASP.NET Core ile dinamik site geliştirmek</li>
-    </ol>
-
-    <h2>Faydalı Bağlantılar</h2>
-    <p>Aşağıdaki kaynaklar web geliştirme öğrenirken faydalı olabilir:</p>
-    <ul>
-        <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
-        <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
-        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-    </ul>
-
-    <hr>
-    <p><small>&copy; 2026 Halil | Web Programlama Dersi</small></p>
+    <footer>
+        <p>&copy; 2026 Halil İbrahim. Tüm hakları saklıdır.</p>
+    </footer>
 
 </body>
 </html>
