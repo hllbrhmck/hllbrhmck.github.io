@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <title>İletişim | Halil</title>
     
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="style.css">
     
     <style>
-        /* Footer fixed (sabit) olduğu için formun en altı kapanmasın diye boşluk bırakıyoruz */
         body {
             padding-bottom: 80px; 
         }
 
-        /* 1, 2, 3. Gereksinimler: Container genişliği, ortalama, padding ve kenarlıklar */
         .contact-container {
-            width: 600px; /* Genişlik */
-            margin: 40px auto; /* Sayfayı ortalar */
-            padding: 30px; /* Elemanların kenara yapışmasını engeller */
-            border: 2px solid #ccc; /* Belirgin kenarlık */
-            border-radius: 10px; /* Köşe yuvarlama */
+            width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
             background-color: #f9f9f9;
             box-sizing: border-box; 
         }
@@ -30,25 +28,57 @@
             color: #333;
         }
 
-        /* 4. Gereksinim: Çoklu seçici (input, select, textarea) ve kutu modeli (Box Model) ayarları */
+        /* Input, select ve textarea için Box Model ayarları */
         .contact-container input, 
         .contact-container select, 
         .contact-container textarea {
-            width: 100%; /* Bulunduğu alanı tam kaplama */
-            padding: 12px; /* İçerisine yazı yazıldığında ferah durması için */
-            margin-bottom: 20px; /* Altındaki elemanla arasına boşluk */
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
             border: 1px solid #aaa;
             border-radius: 5px;
-            box-sizing: border-box; /* Padding'in width değerini taşırmasını engeller */
+            box-sizing: border-box;
             font-family: inherit;
         }
 
-        /* 5. Gereksinim: Gönder Butonu Özelleştirmesi */
+        /* YENİ: Checkbox'ların %100 genişlik alıp bozulmasını engellemek için özel ayar */
+        .contact-container input[type="checkbox"] {
+            width: auto; /* Genişliği normale döndürür */
+            margin-bottom: 0;
+            margin-right: 8px; /* Yazı ile kutucuk arasına boşluk ekler */
+            cursor: pointer;
+        }
+
+        /* YENİ: Checkbox grubunu hizalamak için */
+        .checkbox-group {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* YENİ: Checkbox etiketlerinin kalınlığını alıp yan yana dizmek için */
+        .checkbox-group label {
+            display: inline-block;
+            font-weight: normal;
+            margin-right: 20px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        /* YENİ: Dosya yükleme (CV) butonu için ufak görsel düzeltme */
+        .contact-container input[type="file"] {
+            padding: 9px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
         .contact-container button[type="submit"] {
-            background-color: #333; /* Menü ile uyumlu koyu renk */
+            background-color: #333;
             color: white;
-            border: none; /* Kenarlık kaldırıldı */
-            padding: 15px 30px; /* Sağ-sol ve alt-üst padding verilerek büyütüldü */
+            border: none;
+            padding: 15px 30px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
@@ -57,7 +87,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Menüdeki hover (sarı) efektinin aynısı butona da uygulandı */
         .contact-container button[type="submit"]:hover {
             background-color: #ffcc00; 
             color: #333;
@@ -66,11 +95,10 @@
 </head>
 <body>
 
-   
-
+    
     <nav>
         <ul>
-            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="index.html">Ana Sayfa</a></li>
             <li><a href="about.html">Hakkımda</a></li>
             <li><a href="interests.html">İlgi Alanlarım</a></li>
             <li><a href="contact.html">İletişim</a></li>
@@ -81,12 +109,13 @@
         <div style="text-align: center; margin-bottom: 30px;">
             <h2>İletişim Bilgilerim</h2>
             <p><strong>E-posta:</strong> halilibrahimacik5860@gmail.com</p>
-            <p><strong>Telefon numarası:</strong> 05529841336</p>
+            <p><strong>Telefon Numarası:</strong> 05529841336</p>
         </div>
 
         <div class="contact-container">
             <h2 style="text-align: center;">Bana Mesaj Gönderin</h2>
-            <form action="#" method="POST">
+            
+            <form action="#" method="POST" enctype="multipart/form-data">
                 
                 <label for="ad-soyad">Ad Soyad</label>
                 <input type="text" id="ad-soyad" name="ad-soyad" placeholder="Adınızı ve soyadınızı girin" required>
@@ -97,11 +126,20 @@
                 <label for="konu">Konu</label>
                 <select id="konu" name="konu" required>
                     <option value="" disabled selected>Lütfen bir konu seçiniz</option>
-                    <option value="is_birliği">İş Birliği</option>
+                    <option value="is_teklifi">İş Teklifi</option>
                     <option value="soru">Soru</option>
                     <option value="geri_bildirim">Geri Bildirim</option>
-                    <option value="mentörlük">Mentörlük</option>
                 </select>
+
+                <label>İlgi Alanları</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="ilgi" value="gomulu_sistemler"> Gömülü Sistemler</label>
+                    <label><input type="checkbox" name="ilgi" value="yapay_zeka"> Makine Öğrenmesi & Yapay Zeka</label>
+                    <label><input type="checkbox" name="ilgi" value="yazilim"> Yazılım Geliştirme (Java/Kotlin vb.)</label>
+                </div>
+
+                <label for="cv-dosya">CV Yükle (PDF veya DOCX)</label>
+                <input type="file" id="cv-dosya" name="cv-dosya" accept=".pdf, .doc, .docx">
 
                 <label for="mesaj">Mesaj</label>
                 <textarea id="mesaj" name="mesaj" rows="5" placeholder="Mesajınızı buraya yazabilirsiniz..." required></textarea>
