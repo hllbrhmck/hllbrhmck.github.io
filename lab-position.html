@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahar Etkinlikleri - Lab Position</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Scroll sırasında fixed öğenin test edilebilmesi için */
+            min-height: 150vh; 
+        }
+        header {
+            background-color: #1a365d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .back-link {
+            color: #4fd1c5;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer; /* KURAL: Hover cursor (1) */
+            transition: color 0.3s ease; /* KURAL: CSS Etkileşimi (1) */
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+    
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 80px;
+        }
+
+    
+        .announcement-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+            width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            padding: 40px;
+            position: relative; 
+            border: 1px solid #e2e8f0;
+        }
+
+        /* KART İÇERİĞİ */
+        .card-content {
+            position: relative;
+            z-index: 2; 
+        }
+
+        .card-title {
+            color: #2d3748;
+            margin-top: 10px;
+            font-size: 1.6rem;
+            line-height: 1.3;
+            text-align: center;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 15px;
+        }
+
+        .event-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            border-radius: 5px;
+        }
+
+        .event-section.football {
+            background-color: #f0fff4;
+            border-left: 4px solid #38a169;
+            margin-top: 15px;
+        }
+
+        .event-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .event-desc {
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .action-btn {
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            padding: 12px;
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer; /* KURAL: Hover cursor (2) */
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .action-btn:hover {
+            background-color: #2b6cb0;
+        }
+        
+        .action-btn:active {
+            transform: scale(0.98); /* KURAL: CSS Etkileşimi (2 - active efekti) */
+        }
+
+  
+        .badge-trip {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            background-color: #dd6b20;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            z-index: 10; /* KURAL: z-index kullanımı */
+            animation: bounce 2s infinite; /* KURAL: CSS Etkileşimi (3 - keyframes) */
+        }
+
+   
+        .badge-football {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background-color: #38a169;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .info-date {
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            background-color: #e53e3e;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 5;
+        }
+
+        .fixed-helper {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #2d3748;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            font-weight: bold;
+            cursor: help; /* KURAL: Hover cursor (3) */
+            z-index: 100; 
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .fixed-helper:hover {
+            background-color: #1a202c;
+            transform: translateY(-5px);
+        }
+
+        /* ALT BİLGİ */
+        footer {
+            margin-top: 150px;
+            text-align: center;
+            padding: 20px;
+            color: #a0aec0;
+            border-top: 1px solid #e2e8f0;
+        }
+
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Teknoloji Fakültesi Etkinlik Portalı</h2>
+        <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+    </header>
+
+    <div class="container">
+        
+        <div class="announcement-card">
+            
+            <div class="badge-trip">🚍 Çanakkale Gezisi!</div>
+
+            <div class="badge-football">⚽ Final Maçını Kaçırma!</div>
+            
+            <div class="info-date">Kayıtlar Açıldı</div>
+
+            <div class="card-content">
+                <h3 class="card-title">Yılın En Heyecanlı İki Olayı Bir Arada!</h3>
+                
+                <div class="event-section">
+                    <div class="event-title">📍 Kampüs Dışı Gezi: Çanakkale</div>
+                    <div class="event-desc">
+                        Bahar döneminin yorgunluğunu atmak ve tarihi yerinde yaşamak için Çanakkale'ye gidiyoruz. Ücretsiz ulaşım fakültemiz tarafından sağlanacaktır. Kontenjan sınırlıdır!
+                    </div>
+                </div>
+
+                <div class="event-section football">
+                    <div class="event-title">🏆 Fakülte Futbol Turnuvası Finali</div>
+                    <div class="event-desc">
+                        Haftalardır süren kıyasıya mücadelenin sonuna geldik. Şampiyonun belli olacağı büyük final maçında tribünlerdeki yerini al, takımını destekle!
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <a href="#" class="fixed-helper">💬 Etkinlik Sorumlusuna Ulaşın</a>
+
+    <footer>
+        <p>&copy; 2026 Fakülte Etkinlik Panosu</p>
+    </footer>
+
+</body>
+</html>
