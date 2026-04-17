@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uygulama-2: Gelişmiş Birim Dönüştürücü</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card-container">
+        <h2>Birim Dönüştürücü</h2>
+
+        <div class="form-group">
+            <label for="deger">Değer Giriniz:</label>
+            <input type="number" id="deger" placeholder="Örn: 50">
+        </div>
+
+        <div class="form-group">
+            <label for="kategori">Metrik Kategorisi:</label>
+            <select id="kategori" onchange="kategoriDegisti()">
+                <option value="uzunluk">Uzunluk</option>
+                <option value="sicaklik">Sıcaklık</option>
+                <option value="agirlik">Ağırlık</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="donusumTipi">Dönüşüm Tipi:</label>
+            <select id="donusumTipi">
+                </select>
+        </div>
+
+        <button onclick="hesapla()">Hesapla</button>
+
+        <div id="sonucAlani">
+            Sonuç: <span id="sonucDegeri">...</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
