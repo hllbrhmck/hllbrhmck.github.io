@@ -5,32 +5,28 @@ body {
     padding: 0;
 }
 
-/* 1. Menü Yapısı (display: inline-block kullanımı) */
+/* 1. Menü Yapısı */
 nav {
     background-color: #333;
     text-align: center;
 }
-
 nav ul {
-    list- some: none;
+    list-style: none; /* Düzeltildi */
     padding: 15px;
+    margin: 0;
 }
-
 nav ul li {
-    display: inline-block; /* Ödev gereksinimi */
-    margin-right: 20px;
+    display: inline-block;
+    margin-right: 15px;
 }
-
-/* Hiyerarşik Seçici 1 ve Hover Efekti */
 nav ul li a {
     color: white;
     text-decoration: none;
     padding: 5px 10px;
-    transition: color 0.3s; /* Geçiş efekti */
+    transition: color 0.3s;
 }
-
 nav ul li a:hover {
-    color: #ffcc00; /* Hover efekti: Renk değişimi */
+    color: #ffcc00;
 }
 
 /* 2. Header Alanı */
@@ -41,19 +37,17 @@ header {
     border-bottom: 2px solid #ddd;
 }
 
-/* 3. İki Sütunlu Düzen (display: inline-block ile yan yana getirme) */
+/* 3. İki Sütunlu Düzen */
 .container {
     width: 90%;
     margin: 20px auto;
 }
-
 .content {
     display: inline-block;
     width: 65%;
     vertical-align: top;
     background-color: #fff;
 }
-
 .sidebar {
     display: inline-block;
     width: 30%;
@@ -62,23 +56,18 @@ header {
     border-left: 1px solid #eee;
     padding-left: 15px;
 }
-
-/* Hiyerarşik Seçici 2 ve Metin Düzenlemeleri (font-size, color, line-height, text-align) */
 .content p {
     font-size: 16px;
     color: #444;
     line-height: 1.6;
     text-align: justify;
 }
-
 .sidebar p {
     font-size: 14px;
     color: #666;
     line-height: 1.4;
     text-align: left;
 }
-
-/* 4. Grup Seçici (h1, h2 ve p için ortak özellik) */
 h1, h2, p {
     margin-bottom: 10px;
 }
@@ -92,4 +81,78 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* ========================================= */
+/* --- İLETİŞİM SAYFASI (contact.html) --- */
+/* ========================================= */
+body.contact-page {
+    padding-bottom: 80px; 
+}
+.contact-container {
+    width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-sizing: border-box; 
+}
+.contact-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+.contact-container input, 
+.contact-container select, 
+.contact-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+.contact-container input[type="checkbox"] {
+    width: auto; 
+    margin-bottom: 0;
+    margin-right: 8px; 
+    cursor: pointer;
+}
+.checkbox-group {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.checkbox-group label {
+    display: inline-block;
+    font-weight: normal;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.contact-container input[type="file"] {
+    padding: 9px;
+    background-color: #fff;
+    cursor: pointer;
+}
+.contact-container button[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s, color 0.3s;
+}
+.contact-container button[type="submit"]:hover {
+    background-color: #ffcc00; 
+    color: #333;
 }
